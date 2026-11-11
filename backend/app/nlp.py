@@ -141,7 +141,7 @@ def topics_for(rows):
     count = min(7, max(2, len(samples)//15), matrix.shape[0], matrix.shape[1])
     if count < 2:
         return []
-    model = NMF(n_components=count, init="nndsvda", random_state=42, max_iter=450)
+    model = NMF(n_components=count, init="nndsvda", solver="mu", random_state=42, max_iter=600)
     weights = model.fit_transform(matrix)
     words = vectorizer.get_feature_names_out()
     results = []

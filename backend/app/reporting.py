@@ -28,7 +28,7 @@ def excel_content(rows):
 def pdf_content(title, rows):
     lines = [title, ""]
     for row in rows:
-        lines.extend(textwrap.wrap(" | ".join(str(value or "") for value in row), 94) or [""])
+        lines.extend(textwrap.wrap(" | ".join(str(value if value is not None else "") for value in row), 94) or [""])
     objects = [b"<< /Type /Catalog /Pages 2 0 R >>", b"", b"<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>"]
     pages = []
     for offset in range(0, len(lines), 50):
