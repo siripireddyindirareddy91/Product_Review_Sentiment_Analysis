@@ -5,7 +5,8 @@
   "functions": {
     "api/index.py": {
       "maxDuration": 120,
-      "includeFiles": "{backend/**,data/sample/reviews.csv}"
+      "includeFiles": "{backend/**,data/sample/reviews.csv}",
+      "excludeFiles": "{tests/**,src/**,node_modules/**,migrations/**,scripts/**,**/__pycache__/**,**/*.pyc,**/tests/**}"
     }
   },
   "rewrites": [
