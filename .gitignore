@@ -1,0 +1,16 @@
+node_modules/
+dist/
+.venv/
+.vercel/
+.env
+.env.*
+!.env.example
+__pycache__/
+.pytest_cache/
+*.db
+*.joblib
+.coverage
+*.egg-info/
+data/raw/
+data/processed/
+models/saved/

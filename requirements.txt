@@ -1,0 +1,9 @@
+fastapi==0.115.12
+sqlalchemy==2.0.40
+psycopg[binary]==3.2.6
+PyJWT==2.10.1
+python-multipart==0.0.20
+scikit-learn==1.6.1
+openpyxl==3.1.5
+uvicorn==0.34.0
+alembic==1.15.2

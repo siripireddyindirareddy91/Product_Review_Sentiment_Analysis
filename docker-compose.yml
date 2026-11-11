@@ -1,0 +1,26 @@
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: verdictra
+      POSTGRES_PASSWORD: verdictra-local
+      POSTGRES_DB: verdictra
+    healthcheck:
+      test: [CMD-SHELL, "pg_isready -U verdictra"]
+      interval: 3s
+      timeout: 3s
+      retries: 12
+    volumes:
+      - verdict_data:/var/lib/postgresql/data
+  api:
+    build: .
+    environment:
+      DATABASE_URL: postgresql+psycopg://verdictra:verdictra-local@db/verdictra
+      CORS_ORIGINS: http://localhost:5173
+      JWT_SECRET: ${JWT_SECRET:-verdictra-docker-local-development-only}
+    ports: ["8000:8000"]
+    depends_on:
+      db:
+        condition: service_healthy
+volumes:
+  verdict_data:
